@@ -25,4 +25,10 @@ class OrderController(private val orderService: OrderService) {
     fun findAllProducts(): List<Product> {
         return orderService.findAllProducts()
     }
+
+    @PostMapping("/product")
+    fun createProduct(@RequestBody product: Product): Product {
+        orderService.saveProduct(product)
+        return product
+    }
 }

@@ -3,14 +3,13 @@ package com.example.demo.entity
 import javax.persistence.*
 
 @Entity
-@Table(name = "customers")
 data class Customer(
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val name: String,
     val email: String,
     val gender: String,
-    @OneToMany(cascade = [CascadeType.ALL])
-    val products: List<Product>? = null,
+    @OneToMany(cascade = [CascadeType.ALL], mappedBy = "customer")
+    private val products: MutableList<Product>?,
 )

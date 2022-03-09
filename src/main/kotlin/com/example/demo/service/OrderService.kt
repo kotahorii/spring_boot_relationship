@@ -16,4 +16,6 @@ class OrderService(
     fun findAllOrders(): List<Customer> = customerRepository.findAll()
 
     fun findAllProducts(): List<Product> = productRepository.findAll()
+
+    fun saveProduct(product: Product): Product = productRepository.save(product)
 }
