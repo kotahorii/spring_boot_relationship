@@ -11,5 +11,5 @@ data class Customer(
     val email: String,
     val gender: String,
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "customer")
-    private val products: MutableList<Product>?,
+    val products: MutableList<Product>?,
 )
